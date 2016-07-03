@@ -1,0 +1,11 @@
+{
+  "name": "failpin",
+  "version": "1.0.0",
+  "description": "a pinterest clone focused on fails",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "kokoc",
+  "license": "ISC"
+}

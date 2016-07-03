@@ -1,0 +1,17 @@
+{
+  "name": "failpin",
+  "description": "a pinterest clone focused on fails",
+  "main": "app.js",
+  "authors": [
+    "kokoc"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
