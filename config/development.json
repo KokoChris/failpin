@@ -1,6 +1,12 @@
 {
 	"host":"http://localhost:3000",
 	"dbURI":"mongodb://localhost/failpin",
-	"sessionSecret": "monkeyKing"
+	"sessionSecret": "monkeyKing",
+	"twitter": {
+		"consumerKey":"a0cadvTjEsYt1r0hXFDasJGdw",
+		"consumerSecret": "E2EcIuwMrU3hndv7nu58vD2lMm1L1bZ00MFAadrSpDzROOBN7e",
+		"callbackURL" :"http://127.0.0.1:3000/auth/twitter",
+		"profileFields": ["id","displayName", "photos"]
+	}
 	
 }
