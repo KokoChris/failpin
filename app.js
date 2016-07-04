@@ -40,7 +40,7 @@ app.use('/auth', authRoutes);
 
 app.get('/' , (req, res ) => {
     
-      res.send('hey');
+      res.render('pins/index');
 });
 
 

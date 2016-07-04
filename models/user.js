@@ -7,14 +7,15 @@ var Mongoose = require('mongoose').connect(config.dbURI);
 Mongoose.connection.on('error', function(error) {
     console.log("Oups" + error);
 })
-var chatUser = new Mongoose.Schema({
+var User = new Mongoose.Schema({
     profileId: String,
-    fullName: String,
+    fullname: String,
     profilePic: String,
+    
   
 });
 
-var userModel = Mongoose.model('chatUser', chatUser);
+var userModel = Mongoose.model('User', User);
 
 
 module.exports = {
