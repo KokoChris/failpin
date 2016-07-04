@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const methodOverride = require("method-override");
 const authRoutes = require('./routes/auth');
+const failRoutes = require('./routes/fails');
 
 const session = require('./session');
 const config = require('./config');
@@ -37,6 +38,7 @@ app.use(function (req,res,next) {
 });
 
 app.use('/auth', authRoutes);
+app.use('/fails', failRoutes);
 
 app.get('/' , (req, res ) => {
     
