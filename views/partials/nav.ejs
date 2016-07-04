@@ -17,8 +17,13 @@
 							<% } %>
 						</ul>
 						<ul class="nav navbar-nav navbar-left">
-							<li><a href="/pins">All Users</a></li>
-							<li><a href="/cards/all">All Cards from our Users</a></li>
+							<li><a href="/fails">All Fails</a></li>
+							<% if(currentUser) { %>
+
+							<li><a href="/users/:userId/fails">Your Fails</a></li>
+							<li><a href="/fails/new">New Fail</a></li>
+							<% } %>
+							
 						</ul>
 							
 						
