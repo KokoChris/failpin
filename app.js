@@ -42,7 +42,7 @@ app.use('/fails', failRoutes);
 
 app.get('/' , (req, res ) => {
     
-      res.render('pins/index');
+      res.render('fails/index');
 });
 
 
