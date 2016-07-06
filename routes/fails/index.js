@@ -16,10 +16,16 @@ router.post('/', (req, res) => {
 
     let image = req.body.image;
     let description = req.body.description;
+   	var user = {
+    	id:req.user._id,
+    	fullname: req.user.fullname
+    }
     let newFail = {
         image: image,
-        description: description
+        description: description,
+        user: user
     }
+
 
     Fail.create(newFail)
         .then(fail => res.redirect('/fails'))

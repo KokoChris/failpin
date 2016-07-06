@@ -4,7 +4,6 @@
 <div class="container">
 	<div id ="container">
 	</div>
-	<button id="load-images"></button>
 </div>
 
 <script>
@@ -24,10 +23,8 @@ $( function() {
     .masonry( 'option', { itemSelector: '.item' })
     .masonryImagesReveal( $initialItems );
 
-  $('#load-images').click( function() {
-    var $items = getItems();
-    $container.masonryImagesReveal( $items );
-  });
+     var $items = getItems();
+     $container.masonryImagesReveal( $items );
   
 });
 
@@ -50,27 +47,31 @@ $.fn.masonryImagesReveal = function( $items ) {
   return this;
 };
 
-function randomInt( min, max ) {
-  return Math.floor( Math.random() * max + min );
-}
 
-function getItem() {
-  var width = randomInt( 150, 400 );
-  var height = randomInt( 150, 250 );
-  var item = '<div class="item thumbnail">'+
-    '<img src="http://lorempixel.com/' + 
-      width + '/' + height + '/nature" /><p>KOKOKOKOKO</p></div>';
-  return item;
-}
+// function getItem(fail) {
+//   var width = randomInt( 150, 400 );
+//   var height = randomInt( 150, 250 );
+//   var item = '<div class="item thumbnail">'+
+//     '<img src="http://lorempixel.com/' + 
+//       width + '/' + height + '/nature" /><div class="caption text-center"><p>KOKOKOKOKO</p></div></div>';
+//   return item;
+// }
+
 
 function getItems() {
   var items = '';
-  for ( var i=0; i < 12; i++ ) {
-    items += getItem();
-  }
+  
+  <% fails.forEach( (fail) => { %>
+  	   items += `<div class="item thumbnail">
+ 				    <img src="<%- fail.image %>" 
+       				  /><div class="caption text-center"><p><%-fail.description %></p></div></div>'`
+  <% }) %>
   // return jQuery object
   return $( items );
 }
+
+
+
 
 </script>
 <% include ../partials/footer %>
