@@ -1,0 +1,17 @@
+body { font-family: sans-serif; }
+
+#container {
+  /*background: #DDD;*/
+  
+}
+
+.item {
+  width: 200px;
+  float: left;
+  border: 1px solid purple;
+}
+
+.item img {
+  display: block;
+  width: 100%;
+}
