@@ -4,7 +4,8 @@
   "description": "a pinterest clone focused on fails",
   "main": "app.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node app.js"
   },
   "author": "kokoc",
   "license": "ISC",
