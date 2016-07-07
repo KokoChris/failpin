@@ -3,9 +3,6 @@ const router = express.Router();
 const Fail = require('../../models/fail');
 
 
-
-
-
 router.get('/new', (req, res) => {
 
     res.render('fails/new')
@@ -46,5 +43,32 @@ router.get('/', (req, res) => {
 
 })
 
+
+
+router.get('/:userId' , (req,res) => {
+
+    var userId = req.params.userId;
+
+    Fail.find({'user.id' : userId})
+        .then( userFails => {
+            res.render('fails/index', { fails: userFails })
+        })
+        .catch( err => {
+            console.log(err)
+        });
+
+
+})
+
+
+router.delete('/:failId', (req,res) => {
+
+    let failId = req.params.failId;
+
+    Fail.findByIdAndRemove(failId)
+        .then(res.redirect('/'))
+        .catch(err => console.log(err))
+
+})
 
 module.exports = router;

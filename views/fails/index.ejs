@@ -63,11 +63,20 @@ function getItems() {
   
   <% fails.forEach( (fail) => { %>
   	   items += `<div class="item thumbnail">
- 				    <img src="<%- fail.image %>" 
-       				  /><div class="caption text-center"><p><%-fail.description %></p></div></div>'`
+       				        <img src="<%- fail.image %>"/>
+                      <div class="caption text-center">
+                         <p><%-fail.description %></p>
+                      
+                      <form id="delete-form" action="/fails/<%= fail._id %>?_method=DELETE" method="POST">
+                         <input  type="submit" class="btn btn-sm btn-danger" value="Remove">
+                   </form>
+                        </div>
+                </div>'`
   <% }) %>
   // return jQuery object
   return $( items );
+
+
 }
 
 

@@ -20,7 +20,7 @@
 							<li><a href="/fails">All Fails</a></li>
 							<% if(currentUser) { %>
 
-							<li><a href="/users/:userId/fails">Your Fails</a></li>
+							<li><a href="/fails/<%- currentUser._id %>/">Your Fails</a></li>
 							<li><a href="/fails/new">New Fail</a></li>
 							<% } %>
 							
