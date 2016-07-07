@@ -8,8 +8,9 @@
 
 <script>
 $( function() {
-
   
+  
+
   var $container = $('#container');
   // hide initial items
   var $initialItems = $container.find('.item').hide();
@@ -24,6 +25,8 @@ $( function() {
     .masonryImagesReveal( $initialItems );
 
      var $items = getItems();
+     
+
      $container.masonryImagesReveal( $items );
   
 });
@@ -36,11 +39,18 @@ $.fn.masonryImagesReveal = function( $items ) {
   // hide by default
   $items.hide();
   // append to container
+
   this.append( $items );
+   $('img').error(function(){
+        $(this).attr('src', 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSjGEgnoZvE9D011AijXGmSMV_EA-EetyVAMrFy0cSCDqzD266grA');
+  });
+
+
   $items.imagesLoaded( function() {
     // un-hide items
     $items.show();
     // reveal all of them
+    
     msnry.appended( $items );
   });
   
@@ -60,25 +70,30 @@ $.fn.masonryImagesReveal = function( $items ) {
 
 function getItems() {
   var items = '';
+
   
   <% fails.forEach( (fail) => { %>
               
   	   items += `<div class="item thumbnail">
-       				        <img src="<%- fail.image %>"/>
+       				        <img src="<%- fail.image %>" onerror=""/>
                       <div class="caption text-center">
                          <p><%-fail.description %></p>
-                      
+                    
+                      <span>By<a href="/fails/<%- fail.user.id%>"> <%- fail.user.fullname %></a></span>
+
                       <% if (currentUser && String(currentUser._id) == String(fail.user.id)) { %>
                       <form id="delete-form" action="/fails/<%= fail._id %>?_method=DELETE" method="POST">
                          <input  type="submit" class="btn btn-sm btn-danger" value="Remove">
                       </form>
                       <% } %>
-                      <span>By<a href="/fails/<%- fail.user.id%>"> <%- fail.user.fullname %></a></span>
                         </div>
                 </div>'`
 
   <% }) %>
   // return jQuery object
+ 
+
+  
   return $( items );
 
 
