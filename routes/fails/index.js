@@ -4,7 +4,6 @@ const Fail = require('../../models/fail');
 
 
 router.get('/new', (req, res) => {
-
     res.render('fails/new')
 })
 
@@ -16,12 +15,12 @@ router.post('/', (req, res) => {
    	var user = {
     	id:req.user._id,
     	fullname: req.user.fullname
-    }
+    };
     let newFail = {
         image: image,
         description: description,
         user: user
-    }
+    };
 
 
     Fail.create(newFail)

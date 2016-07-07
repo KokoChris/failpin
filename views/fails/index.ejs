@@ -62,16 +62,21 @@ function getItems() {
   var items = '';
   
   <% fails.forEach( (fail) => { %>
+              
   	   items += `<div class="item thumbnail">
        				        <img src="<%- fail.image %>"/>
                       <div class="caption text-center">
                          <p><%-fail.description %></p>
                       
+                      <% if (currentUser && String(currentUser._id) == String(fail.user.id)) { %>
                       <form id="delete-form" action="/fails/<%= fail._id %>?_method=DELETE" method="POST">
                          <input  type="submit" class="btn btn-sm btn-danger" value="Remove">
-                   </form>
+                      </form>
+                      <% } %>
+                      <span>By<a href="/fails/<%- fail.user.id%>"> <%- fail.user.fullname %></a></span>
                         </div>
                 </div>'`
+
   <% }) %>
   // return jQuery object
   return $( items );
