@@ -4,6 +4,12 @@ if (process.env.NODE_ENV) {
     host:process.env.host || "",
     dbURI: process.env.dbURI,
     sessionSecret: process.env.sessionSecret,
+    twitter:{
+    	consumerKey: process.env.consumerKey,
+    	consumerSecret: process.env.consumerSecret,
+    	callbackUrl: process.env.callbackUrl,
+    	profileFields:["id","displayName", "photos"]
+    }
   }
 
 
